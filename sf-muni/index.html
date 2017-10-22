@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>San Francisco Muni</title>
+  <meta name="description" content="d3 and Angular">
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="./app/scripts/styles/main.css">
+
+  <script src="./app/scripts/app.js"></script>
+  <script src="./app/scripts/services/d3.js"></script>
+  <script src="./app/scripts/controllers/baseMapCtrl.js"></script>
+  <script src="./app/scripts/controllers/routeSelectPanelCtrl.js"></script>
+  <script src="./app/scripts/controllers/routeDataCtrl.js"></script>
+  <script src="./app/scripts/controllers/vehicleListCtrl.js"></script>
+  <script src="./app/scripts/directives/baseMap.js"></script>
+  <script src="./app/scripts/directives/routeSelectPanelItem.js"></script>
+  <script src="./app/scripts/directives/vehicles.js"></script>
+</head>
+<body ng-app="sfmuni">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="index.html">San Fransico Muni</a>
+      </nav>
+    </header>
+    <div class="container-fluid" ng-controller="RouteDataCtrl">
+      <div class="row">
+        <nav id="RouteSelectPanel" class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar" ng-controller="RouteSelectPanelCtrl">
+          <ul class="nav nav-pills flex-column">
+            <route-select-panel-item data={{route}} ng-repeat="route in routes"></route-select-panel-item>
+          </ul>
+        </nav>
+        <div id="MapPanel" class="ml-sm-auto col-md-10 pt-3">
+          <base-map>
+            <vehicles></vehicles>
+          </base-map>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
