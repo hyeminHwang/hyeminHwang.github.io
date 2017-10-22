@@ -6,7 +6,7 @@
       var mapNames = ['streets', 'neighborhoods', 'freeways', 'arteries'];
 
       mapNames.forEach(function(mapName) {
-        $http.get('../app/scripts/data/' + mapName + '.json').
+        $http.get('./app/scripts/data/' + mapName + '.json').
           success(function(data, status, headers, config) {
             $scope.svg
               .append("path")
